@@ -1,6 +1,5 @@
 import joblib
 import numpy as np
-from scipy.stats import skew as skew_func
 
 # Load models
 model_o1 = joblib.load("models/random_forest_model_o1.pkl")
@@ -23,17 +22,17 @@ def convert_to_numeric(perceptions):
         p = p.strip().title()
         values.append(score_map.get(p, 0))
 
-    return values
+    return np.array(values)   # ✅ IMPORTANT FIX
 
 
 # Extract features
 def extract_features(values):
-    values = np.array(values)  # 🔥 IMPORTANT
-
     mean = np.mean(values)
     median = np.median(values)
     variance = np.var(values)
-    skew = 0 if len(values) < 3 else float(skew_func(values))  # ✅ fixed
+
+    # safe skew
+    skew = 0 if len(values) < 3 else float(np.mean((values - mean) ** 3))
 
     return [mean, median, variance, skew]
 
@@ -43,10 +42,8 @@ def analyze_claim_with_model(perceptions):
     values = convert_to_numeric(perceptions)
     features = extract_features(values)
 
-    # Scale features
     features_scaled = scaler.transform([features])
 
-    # Predictions
     o1_pred = model_o1.predict(features_scaled)
     main_pred = model_main.predict(features_scaled)
 
