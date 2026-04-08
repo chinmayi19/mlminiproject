@@ -60,7 +60,10 @@ async def analyze_dataset(
             (df["predicted_truth"] != "False")
         ].sort_values(by="tpb_score", ascending=False)
 
-        disputed = []
+        used_ids = set(false_claims["claim_id"]).union(set(misperceived["claim_id"]))
+
+        disputed = df[~df["claim_id"].isin(used_ids)] \
+            .sort_values(by="disputability", ascending=False)
 
         # Step 7
         return {
