@@ -225,9 +225,9 @@ function App() {
           </div>
         )}
 
-        // 𝐶i= i-th claim
-        // Pi= Number of positive perception
-        // Ni= Number of negative perception
+           𝐶i= i-th claim,
+           Pi= Number of positive perception,
+           Ni= Number of negative perception
         {stats && (
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg mb-8">
             <h3 className="font-semibold text-lg mb-2">
