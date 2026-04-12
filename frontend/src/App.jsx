@@ -235,7 +235,7 @@ function App() {
             </p>
 
             <p className="mt-2 font-mono text-blue-700">
-              D(Ci) = (Pi + Ni) / (Pi − Ni)
+              D(Ci) = |Pi-Ni|/(Pi+Ni)
             </p>
           </div>
         )}
