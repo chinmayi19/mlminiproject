@@ -242,7 +242,7 @@ function App() {
             <p className="mt-2 font-mono text-blue-700">
               D(Ci) = |Pi-Ni|/(Pi+Ni)
             </p>
-            <p color:black>Ci= i-th claim</p>
+            <p classname="text-gray-700">Ci= i-th claim,  Pi= Number of positive perception, Ni= Number of negative perception </p>
           </div>
         )}
 
