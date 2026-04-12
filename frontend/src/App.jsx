@@ -224,6 +224,21 @@ function App() {
 
           </div>
         )}
+        {stats && (
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg mb-8">
+            <h3 className="font-semibold text-lg mb-2">
+              Disputability Formula
+            </h3>
+
+            <p className="text-gray-700">
+              Disputability is calculated with the formula:
+            </p>
+
+            <p className="mt-2 font-mono text-blue-700">
+              D(Ci) = |Pi-Ni|/(Pi+Ni)
+            </p>
+          </div>
+        )}
 
         {/* Tables */}
         {renderTable("False Claims (O1)", results.false_claims)}
