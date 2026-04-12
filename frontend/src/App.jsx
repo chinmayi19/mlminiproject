@@ -225,7 +225,7 @@ function App() {
           </div>
         )}
 
-           𝐶i= i-th claim,
+            Ci= i-th claim,
            Pi= Number of positive perception,
            Ni= Number of negative perception
         {stats && (
